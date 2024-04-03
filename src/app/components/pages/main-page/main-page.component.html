@@ -16,7 +16,8 @@
         (keyup.enter)="result()">
       <div class="flex justify-end">
         <button class="flex hover:text-secondary-color-600 transition-all duration-300 py-2 rounded">
-          <mat-icon class="transition-all duration-300 hover:transform hover:rotate-180">close</mat-icon>
+          <mat-icon class="transition-all duration-300 hover:transform hover:rotate-180"
+            (click)="clear()">close</mat-icon>
         </button>
 
         <button class="flex px-1 py-2 rounded" (click)="result()">

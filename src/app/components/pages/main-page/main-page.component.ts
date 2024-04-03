@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { MenuBarComponent } from '../../shared/menu-bar/menu-bar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './main-page.component.css'
 })
 export class MainPageComponent {
-  input: string = '4+5';
+  input: string = '';
   output: string = '';
 
   sumSubOperation(expression: string) {
@@ -35,5 +35,9 @@ export class MainPageComponent {
 
   result() {
     this.output = this.sumSubOperation(this.input);
+  }
+
+  clear() {
+    this.input = "";
   }
 }
