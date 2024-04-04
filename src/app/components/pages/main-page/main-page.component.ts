@@ -11,9 +11,9 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './main-page.component.css'
 })
 export class MainPageComponent {
-  input: string = '(2+3)';
+  input: string = '2*3';
   output: string = '';
-
+  regexExpressionPatternMult: RegExp = /([+-]?\d+\.?\d*\*[+-]?\d+\.?\d*)/g;
   /**
    * Calcula a soma de partes em uma expressão matemática.
    * @param expression A expressão matemática contendo números e operadores de adição/subtração.
@@ -21,7 +21,7 @@ export class MainPageComponent {
    */
 
   sumSubOperation(expression: string): string {
-    let regexExpressionPattern: RegExp = /([+-]?\d+.?\d*)/g;
+    let regexExpressionPattern: RegExp = /([+-]?\d+\.?\d*)/g;
     let parts: string[] = [];
     let matchResult: RegExpExecArray | null;
     let result: number = 0
@@ -37,8 +37,21 @@ export class MainPageComponent {
     return result.toString();
   }
 
-  multOperation() {
-    let regexExpressionPattern: RegExp = /([+-]?\d+)/g;
+  multOperation(expression: string): string {
+    let matchResult = expression.match(this.regexExpressionPatternMult)
+    if (matchResult) {
+      let parts = matchResult[0].split("*");
+      let result = Number(parts[0]) * Number(parts[1]);
+      console.log(result);
+      if (result > 0) {
+        expression = expression.replace(matchResult[0], "+" + result)
+      } else {
+        expression = expression.replace(matchResult[0], result.toString())
+      }
+      return this.mainFunction(expression);
+    }
+
+    return expression;
   }
 
   parentesisExpression(expression: string): string {
@@ -68,8 +81,7 @@ export class MainPageComponent {
     }
 
     if (expression.includes("*")) {
-
-      return "multiplicação em breve"
+      expression = this.multOperation(expression);
     }
 
     expression = this.sumSubOperation(expression);
