@@ -55,7 +55,7 @@ export class MainPageComponent {
   }
 
   parentesisExpression(expression: string): string {
-    let regexExpressionPattern: RegExp = /\(([^()]+)\)/g;
+    let regexExpressionPattern: RegExp = /[+-]?\(([^()]+)\)/g;
 
     let matchResult = expression.match(regexExpressionPattern);
 
@@ -71,6 +71,16 @@ export class MainPageComponent {
   }
 
   mainFunction(expression: string): string {
+    console.log(expression);
+
+    let regexExpressionPatternAux: RegExp = /-\(/g;
+
+    let matchResultAux = expression.match(regexExpressionPatternAux);
+    if (matchResultAux) {
+      expression = expression.replaceAll(matchResultAux[0], "-1*(");
+    }
+
+
 
     if (this.containsInvalidCharacters(expression)) {
       return "Expressão inválida!"
