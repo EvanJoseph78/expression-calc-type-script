@@ -44,7 +44,6 @@ export class MainPageComponent {
     let matchResult = expression.match(this.regexExpressionPatternExpo)
 
     if (matchResult) {
-      console.log(matchResult[0]);
       let parts = matchResult[0].split("^");
       let result = Math.pow(Number(parts[0]), Number(parts[1]))
 
@@ -123,11 +122,13 @@ export class MainPageComponent {
   mainFunction(expression: string): string {
 
     let regexExpressionPatternAux: RegExp = /-\(/g;
-
     let matchResultAux = expression.match(regexExpressionPatternAux);
+
     if (matchResultAux) {
       expression = expression.replaceAll(matchResultAux[0], "-1*(");
     }
+
+    expression = expression.replace(/(\d)\(/g, "$1*(");
 
     if (this.containsInvalidCharacters(expression)) {
       return "Expressão inválida!"
