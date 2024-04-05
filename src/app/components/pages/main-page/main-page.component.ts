@@ -11,10 +11,12 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './main-page.component.css'
 })
 export class MainPageComponent {
-  input: string = '2*3';
+  input: string = '2^3^2';
   output: string = '';
   regexExpressionPatternMult: RegExp = /([+-]?\d+\.?\d*\*[+-]?\d+\.?\d*)/g;
   regexExpressionPatternDiv: RegExp = /([+-]?\d+\.?\d*\/[+-]?\d+\.?\d*)/g;
+  regexExpressionPatternExpo: RegExp = /([+-]?\d+\.?\d*\^[+-]?\d+\.?\d*(?!\^))/g;
+
   /**
    * Calcula a soma de partes em uma expressão matemática.
    * @param expression A expressão matemática contendo números e operadores de adição/subtração.
@@ -38,6 +40,28 @@ export class MainPageComponent {
     return result.toString();
   }
 
+  expoOperation(expression: string): string {
+    let matchResult = expression.match(this.regexExpressionPatternExpo)
+
+    if (matchResult) {
+      console.log(matchResult[0]);
+      let parts = matchResult[0].split("^");
+      let result = Math.pow(Number(parts[0]), Number(parts[1]))
+
+      if (Number(parts[0]) == 0 && Number(parts[1]) == 0) {
+        return "Indeterminação"
+      }
+
+      if (result > 0) {
+        expression = expression.replace(this.regexExpressionPatternExpo, "+" + result)
+      } else {
+        expression = expression.replace(this.regexExpressionPatternExpo, result.toString())
+      }
+      return this.mainFunction(expression);
+    }
+    return expression;
+  }
+
 
   divOperation(expression: string): string {
     let matchResult = expression.match(this.regexExpressionPatternDiv)
@@ -52,7 +76,6 @@ export class MainPageComponent {
       }
 
       let result = Number(parts[0]) / Number(parts[1]);
-      console.log(result);
       if (result > 0) {
         expression = expression.replace(matchResult[0], "+" + result)
       } else {
@@ -70,7 +93,6 @@ export class MainPageComponent {
     if (matchResult) {
       let parts = matchResult[0].split("*");
       let result = Number(parts[0]) * Number(parts[1]);
-      console.log(result);
       if (result > 0) {
         expression = expression.replace(matchResult[0], "+" + result)
       } else {
@@ -99,7 +121,6 @@ export class MainPageComponent {
   }
 
   mainFunction(expression: string): string {
-    console.log(expression);
 
     let regexExpressionPatternAux: RegExp = /-\(/g;
 
@@ -108,14 +129,23 @@ export class MainPageComponent {
       expression = expression.replaceAll(matchResultAux[0], "-1*(");
     }
 
-
-
     if (this.containsInvalidCharacters(expression)) {
       return "Expressão inválida!"
     }
 
+
+
     if (expression.includes("(")) {
       expression = this.parentesisExpression(expression);
+    }
+
+    if (expression.includes("^")) {
+
+      expression = this.expoOperation(expression);
+
+      if (expression == "Indeterminação") {
+        return "Indeterminação"
+      }
     }
 
     if (expression.includes("/")) {
@@ -148,7 +178,7 @@ export class MainPageComponent {
   }
 
   containsInvalidCharacters(input: string): boolean {
-    let allowedCharacters = "+-*/0123456789()[]{}.";
+    let allowedCharacters = "+-*/0123456789()[]{}.^";
     for (let char of input) {
       if (allowedCharacters.indexOf(char) === -1) {
         return true; // Caractere inválido encontrado
