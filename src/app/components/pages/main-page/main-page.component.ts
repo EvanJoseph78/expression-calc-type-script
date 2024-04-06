@@ -1,7 +1,8 @@
-import { Component, input } from '@angular/core';
+import { Component } from '@angular/core';
 import { MenuBarComponent } from '../../shared/menu-bar/menu-bar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+import * as math from 'mathjs';
 
 @Component({
   selector: 'app-main-page',
@@ -11,7 +12,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './main-page.component.css'
 })
 export class MainPageComponent {
-  input: string = '2^3^2';
+  input: string = '(-2)^(1/2)';
   output: string = '';
   regexExpressionPatternMult: RegExp = /([+-]?\d+\.?\d*\*[+-]?\d+\.?\d*)/g;
   regexExpressionPatternDiv: RegExp = /([+-]?\d+\.?\d*\/[+-]?\d+\.?\d*)/g;
@@ -43,12 +44,19 @@ export class MainPageComponent {
   expoOperation(expression: string): string {
     let matchResult = expression.match(this.regexExpressionPatternExpo)
 
+    console.log(expression);
     if (matchResult) {
       let parts = matchResult[0].split("^");
       let result = Math.pow(Number(parts[0]), Number(parts[1]))
 
       if (Number(parts[0]) == 0 && Number(parts[1]) == 0) {
         return "Indeterminação"
+      }
+
+      if (Number(parts[0]) < 0) {
+        let result = math.evaluate(expression);
+        console.log(result);
+        // return math.evaluate(expression).toString();
       }
 
       if (result > 0) {
@@ -134,8 +142,6 @@ export class MainPageComponent {
       return "Expressão inválida!"
     }
 
-
-
     if (expression.includes("(")) {
       expression = this.parentesisExpression(expression);
     }
@@ -179,12 +185,21 @@ export class MainPageComponent {
   }
 
   containsInvalidCharacters(input: string): boolean {
-    let allowedCharacters = "+-*/0123456789()[]{}.^";
+    let allowedCharacters = "+-*/0123456789()[]{}.^i";
     for (let char of input) {
       if (allowedCharacters.indexOf(char) === -1) {
         return true; // Caractere inválido encontrado
       }
     }
     return false; // Nenhum caractere inválido encontrado
+  }
+
+  solveExpression(expression: string): string {
+    try {
+      const result = math.evaluate(expression);
+      return result.toString();
+    } catch (error) {
+      return "Expressão inválida"
+    }
   }
 }
