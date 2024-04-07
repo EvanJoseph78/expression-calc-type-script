@@ -30,6 +30,16 @@
 
   <div class="flex flex-col gap-1 justify-between">
     <div class="bg-violet-500 w-screen h-72 sm:w-96 grid grid-cols-6" id="">
+
+      <div *ngFor="let button of keyboardButtons"
+        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
+        (click)="button.action()">
+        @if(button.icon){
+        <mat-icon>{{button.label}}</mat-icon>
+        }@else{
+        {{button.label}}
+        }
+      </div>
       <!-- @if(extraBtns){ -->
       <!-- @for(button of keyboardButtons2; track button){ -->
       <!-- <div -->

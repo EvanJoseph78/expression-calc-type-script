@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CalculatorService } from '../../services/calculator.service';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 
 interface KeyboardButton {
   label: string;
@@ -12,7 +13,7 @@ interface KeyboardButton {
 @Component({
   selector: 'app-keyboard',
   standalone: true,
-  imports: [FormsModule, MatIconModule],
+  imports: [FormsModule, MatIconModule, CommonModule],
   templateUrl: './keyboard.component.html',
   styleUrl: './keyboard.component.css'
 })
@@ -51,7 +52,6 @@ export class KeyboardComponent {
     { label: '2', action: () => this.keyboard('2'), icon: false },
     { label: '3', action: () => this.keyboard('3'), icon: false },
     { label: '-', action: () => this.keyboard('-'), icon: false },
-
 
     { label: 'π', action: () => this.keyboard('π'), icon: false },
     { label: '√', action: () => this.keyboard('sqrt('), icon: false },
