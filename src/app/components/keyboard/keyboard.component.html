@@ -18,10 +18,9 @@
 
       <input type="" name="" value="" class="w-full focus:outline-none px-2" [(ngModel)]="input"
         (keyup.backspace)="backspace()" #inputFieldElement>
-      <div class="flex justify-end">
+      <div class="flex justify-end w-16" (click)="clear()">
         <button class="flex hover:text-secondary-color-600 transition-all duration-300 py-2 rounded">
-          <mat-icon class="transition-all duration-300 hover:transform hover:rotate-180"
-            (click)="clear()">close</mat-icon>
+          <mat-icon class="transition-all duration-300 hover:transform hover:rotate-180 mr-4">close</mat-icon>
         </button>
 
         <!-- <button class="flex px-1 py-2 rounded" (click)="backspace()"> -->
