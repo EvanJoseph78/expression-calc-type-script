@@ -27,6 +27,7 @@ export class CalculatorService {
     expression = expression.replaceAll("sen", "sin");
     expression = expression.replaceAll("º", "deg");
     expression = expression.replaceAll("tg", "tan");
+    expression = expression.replaceAll("π", "pi");
     return expression;
   }
 

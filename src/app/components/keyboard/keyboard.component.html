@@ -3,36 +3,67 @@
   <div class="mt-4">
     <div class="flex justify-center">
       <span class="text-4xl font-bold text-primary-color-700">Evan</span><span
-        class="text-4xl font-bold text-secondary-color-500">Alpha</span>
+        class="text-4xl font-bold text-secondary-color-500">Joseph</span>
     </div>
 
     <div class="px-4 py-2 text-primary-color-800 font-bold min-h-8 mt-4 border-t border-primary-color-500 flex gap-4">
-      <!-- <p class="text-secondary-color-500">></p> {{solveExpression(input)}} -->
-      <!-- <p class="text-secondary-color-500">></p> {{calculatorService.solveExpression()}} -->
       <p class="text-secondary-color-500">></p> {{calculatorService.solveExpression(input)}}
     </div>
   </div>
 
 
   <div class="flex flex-col gap-1 justify-between">
-    <div class="border-t border-b border-secondary-color-500 h-10 w-full mt-4 flex justify-between overflow-hidden">
+    <div
+      class="border-t border-b border-secondary-color-500 h-10 w-full mt-4 flex justify-between overflow-hidden px-1">
 
       <input type="" name="" value="" class="w-full focus:outline-none px-2" [(ngModel)]="input"
-        (keyup.enter)="result()">
+        (keyup.backspace)="backspace()" #inputFieldElement>
       <div class="flex justify-end">
         <button class="flex hover:text-secondary-color-600 transition-all duration-300 py-2 rounded">
           <mat-icon class="transition-all duration-300 hover:transform hover:rotate-180"
             (click)="clear()">close</mat-icon>
         </button>
 
-        <button class="flex px-1 py-2 rounded" (click)="result()">
-          <mat-icon class="hover:bg-secondary-color-600 transition-all duration-300 rounded-md">arrow_forward</mat-icon>
-        </button>
+        <!-- <button class="flex px-1 py-2 rounded" (click)="backspace()"> -->
+        <!--   <mat-icon class="hover:text-secondary-color-600 transition-all duration-300 ">backspace</mat-icon> -->
+        <!-- </button> -->
       </div>
 
     </div>
 
     <div class="bg-violet-500 w-screen h-72 sm:w-96 grid grid-cols-6" id="">
+
+
+      <div
+        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
+        (click)="keyboard('sen(')">
+        sen
+      </div>
+
+      <div
+        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
+        (click)="keyboard('cos(')">
+        cos
+      </div>
+      <div
+        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
+        (click)="keyboard('tan(')">
+        tan
+      </div>
+      <div
+        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
+        (click)="keyboard('<')">
+        <mat-icon class="">chevron_left</mat-icon>
+      </div>
+      <div class=" bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500
+        transition-all duration-300 hover:cursor-pointer" (click)="keyboard('>')">
+        <mat-icon class="">chevron_right</mat-icon>
+      </div>
+      <div
+        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
+        (click)="backspace()">
+        <mat-icon class="">backspace</mat-icon>
+      </div>
 
       <div
         class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
@@ -96,13 +127,13 @@
       </div>
       <div
         class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('^')">
-        ^
+        (click)="keyboard('e')">
+        e
       </div>
       <div
         class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('')">
-        x
+        (click)="keyboard('^')">
+        ^
       </div>
       <div
         class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
@@ -126,8 +157,8 @@
       </div>
       <div
         class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('pi')">
-        pi
+        (click)="keyboard('π')">
+        π
       </div>
       <div
         class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
@@ -135,14 +166,14 @@
         ,
       </div>
       <div
-        class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('0')">
-        0
-      </div>
-      <div
         class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
         (click)="keyboard('.')">
         .
+      </div>
+      <div
+        class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
+        (click)="keyboard('0')">
+        0
       </div>
       <div
         class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
