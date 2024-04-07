@@ -64,44 +64,44 @@ export class KeyboardComponent {
     // Adicione mais botões conforme necessário
   ];
 
-  keyboardButtons2: KeyboardButton[] = [
-
-    { label: 'arrow_back', action: () => this.toggleExtraBtns(), icon: true },
-    { label: 'i', action: () => this.keyboard('i'), icon: false },
-    { label: '≠', action: () => this.keyboard('≠'), icon: false },
-    { label: '≤', action: () => this.keyboard('≤'), icon: false },
-    { label: '≥', action: () => this.keyboard('≥'), icon: false },
-    { label: 'backspace', action: () => this.backspace(), icon: true },
-
-    { label: '[', action: () => this.keyboard('['), icon: false },
-    { label: ']', action: () => this.keyboard(']'), icon: false },
-    { label: '', action: () => this.keyboard(''), icon: false },
-    { label: '', action: () => this.keyboard(''), icon: false },
-    { label: '', action: () => this.keyboard(''), icon: false },
-    { label: '%', action: () => this.keyboard('%'), icon: false },
-
-    { label: 'tan', action: () => this.keyboard('tan('), icon: false },
-    { label: 'log', action: () => this.keyboard('log('), icon: false },
-    { label: '', action: () => this.keyboard(''), icon: false },
-    { label: '', action: () => this.keyboard(''), icon: false },
-    { label: '', action: () => this.keyboard(''), icon: false },
-    { label: 'º', action: () => this.keyboard('º'), icon: false },
-
-    { label: '{', action: () => this.keyboard('{'), icon: false },
-    { label: '}', action: () => this.keyboard('}'), icon: false },
-    { label: '', action: () => this.keyboard(''), icon: false },
-    { label: '', action: () => this.keyboard(''), icon: false },
-    { label: '', action: () => this.keyboard(''), icon: false },
-    { label: '', action: () => this.keyboard(''), icon: false },
-
-    { label: '', action: () => this.keyboard(''), icon: false },
-    { label: '', action: () => this.keyboard(''), icon: false },
-    { label: '', action: () => this.keyboard(''), icon: false },
-    { label: '', action: () => this.keyboard(''), icon: false },
-    { label: ';', action: () => this.keyboard(';'), icon: false },
-    { label: '', action: () => this.keyboard(''), icon: false },
-
-  ];
+  // keyboardButtons2: KeyboardButton[] = [
+  //
+  //   { label: 'arrow_back', action: () => this.toggleExtraBtns(), icon: true },
+  //   { label: 'i', action: () => this.keyboard('i'), icon: false },
+  //   { label: '≠', action: () => this.keyboard('≠'), icon: false },
+  //   { label: '≤', action: () => this.keyboard('≤'), icon: false },
+  //   { label: '≥', action: () => this.keyboard('≥'), icon: false },
+  //   { label: 'backspace', action: () => this.backspace(), icon: true },
+  //
+  //   { label: '[', action: () => this.keyboard('['), icon: false },
+  //   { label: ']', action: () => this.keyboard(']'), icon: false },
+  //   { label: '', action: () => this.keyboard(''), icon: false },
+  //   { label: '', action: () => this.keyboard(''), icon: false },
+  //   { label: '', action: () => this.keyboard(''), icon: false },
+  //   { label: '%', action: () => this.keyboard('%'), icon: false },
+  //
+  //   { label: 'tan', action: () => this.keyboard('tan('), icon: false },
+  //   { label: 'log', action: () => this.keyboard('log('), icon: false },
+  //   { label: '', action: () => this.keyboard(''), icon: false },
+  //   { label: '', action: () => this.keyboard(''), icon: false },
+  //   { label: '', action: () => this.keyboard(''), icon: false },
+  //   { label: 'º', action: () => this.keyboard('º'), icon: false },
+  //
+  //   { label: '{', action: () => this.keyboard('{'), icon: false },
+  //   { label: '}', action: () => this.keyboard('}'), icon: false },
+  //   { label: '', action: () => this.keyboard(''), icon: false },
+  //   { label: '', action: () => this.keyboard(''), icon: false },
+  //   { label: '', action: () => this.keyboard(''), icon: false },
+  //   { label: '', action: () => this.keyboard(''), icon: false },
+  //
+  //   { label: '', action: () => this.keyboard(''), icon: false },
+  //   { label: '', action: () => this.keyboard(''), icon: false },
+  //   { label: '', action: () => this.keyboard(''), icon: false },
+  //   { label: '', action: () => this.keyboard(''), icon: false },
+  //   { label: ';', action: () => this.keyboard(';'), icon: false },
+  //   { label: '', action: () => this.keyboard(''), icon: false },
+  //
+  // ];
 
 
   constructor(public calculatorService: CalculatorService) { }
