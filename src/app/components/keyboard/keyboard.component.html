@@ -28,10 +28,9 @@
 
 
   <div class="flex flex-col gap-1 justify-between">
-    @if(!extraBtns){
 
     <div class="bg-violet-500 w-screen h-72 sm:w-96 grid grid-cols-6" id="">
-      <app-btn label="add_circle" [icon]="true" (click)="toggleExtraBtns()"></app-btn>
+      <app-btn [label]="extraBtns ? 'arrow_back' : 'add_circle'" [icon]="true" (click)="toggleExtraBtns()"></app-btn>
       <app-btn label="!" (click)="keyboard('!')"></app-btn>
       <app-btn label="=" (click)="keyboard('=')"></app-btn>
       <app-btn label="chevron_left" (click)="keyboard('<')" [icon]="true"></app-btn>
@@ -66,6 +65,43 @@
       <app-btn label="," (click)="keyboard(',')"></app-btn>
       <app-btn label="+" (click)="keyboard('+')"></app-btn>
     </div>
-    }
+
+    <div class="bg-violet-500 w-screen h-72 sm:w-96 grid grid-cols-6" id="">
+      <app-btn [label]="extraBtns ? 'arrow_back' : 'add_circle'" [icon]="true" (click)="toggleExtraBtns()"></app-btn>
+      <app-btn label="!" (click)="keyboard('!')"></app-btn>
+      <app-btn label="=" (click)="keyboard('=')"></app-btn>
+      <app-btn label="chevron_left" (click)="keyboard('<')" [icon]="true"></app-btn>
+      <app-btn label="chevron_right" (click)="keyboard('>')" [icon]="true"></app-btn>
+      <app-btn label="backspace" (click)="backspace()" [icon]="true"></app-btn>
+
+      <app-btn label="(" (click)="keyboard('(')"></app-btn>
+      <app-btn label=")" (click)="keyboard(')')"></app-btn>
+      <app-btn label="7" (click)="keyboard('7')"></app-btn>
+      <app-btn label="8" (click)="keyboard('8')"></app-btn>
+      <app-btn label="9" (click)="keyboard('9')"></app-btn>
+      <app-btn label="÷" (click)="keyboard('÷')"></app-btn>
+
+      <app-btn label="sen" (click)="keyboard('sen(')"></app-btn>
+      <app-btn label="cos" (click)="keyboard('cos(')"></app-btn>
+      <app-btn label="4" (click)="keyboard('4')"></app-btn>
+      <app-btn label="5" (click)="keyboard('5')"></app-btn>
+      <app-btn label="6" (click)="keyboard('6')"></app-btn>
+      <app-btn label="×" (click)="keyboard('×')"></app-btn>
+
+      <app-btn label="e" (click)="keyboard('e')"></app-btn>
+      <app-btn label="^" (click)="keyboard('^')"></app-btn>
+      <app-btn label="1" (click)="keyboard('1')"></app-btn>
+      <app-btn label="2" (click)="keyboard('2')"></app-btn>
+      <app-btn label="3" (click)="keyboard('3')"></app-btn>
+      <app-btn label="-" (click)="keyboard('-')"></app-btn>
+
+      <app-btn label="π" (click)="keyboard('π')"></app-btn>
+      <app-btn label="√" (click)="keyboard('sqrt(')"></app-btn>
+      <app-btn label="." (click)="keyboard('.')"></app-btn>
+      <app-btn label="0" (click)="keyboard('0')"></app-btn>
+      <app-btn label="," (click)="keyboard(',')"></app-btn>
+      <app-btn label="+" (click)="keyboard('+')"></app-btn>
+    </div>
+
   </div>
 </div>
