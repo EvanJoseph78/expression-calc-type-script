@@ -1,0 +1,8 @@
+.no-select {
+  user-select: none;
+}
+
+.touch-feedback:active {
+  /* Adicione um feedback visual quando o elemento é tocado */
+  background-color: #ff7f07;
+}

@@ -30,9 +30,9 @@
     <app-btn [label]="extraBtns ? 'arrow_back' : 'add_circle'" [icon]="true" (click)="toggleExtraBtns()"></app-btn>
     <app-btn [label]="extraBtns ? 'i' : '!'" (click)="extraBtns ? keyboard('i') : keyboard('!')"></app-btn>
     <app-btn [label]="extraBtns ? '≠' : '='" (click)="extraBtns ? keyboard('≠') : keyboard('=')"></app-btn>
-    <app-btn [label]="extraBtns ? '≤' : '<'" (click)="extraBtns ? keyboard('≤') : keyboard('chevron_left')"
+    <app-btn [label]="extraBtns ? '≤' : '<'" (click)="extraBtns ? keyboard('≤') : keyboard('<')"
       [icon]="false"></app-btn>
-    <app-btn [label]="extraBtns ? '≥' : '>'" (click)="extraBtns ? keyboard('≥') : keyboard('≥')"
+    <app-btn [label]="extraBtns ? '≥' : '>'" (click)="extraBtns ? keyboard('≥') : keyboard('>')"
       [icon]="false"></app-btn>
     <app-btn label="backspace" (click)="backspace()" [icon]="true"></app-btn>
 
@@ -59,8 +59,8 @@
 
     <app-btn label="π" (click)="keyboard('π')"></app-btn>
     <app-btn label="√" (click)="keyboard('sqrt(')"></app-btn>
-    <app-btn label="." (click)="keyboard('.')"></app-btn>
     <app-btn label="0" (click)="keyboard('0')"></app-btn>
+    <app-btn label="." (click)="keyboard('.')"></app-btn>
     <app-btn [label]="extraBtns ? ';' : ','" (click)="extraBtns ? keyboard(';') : keyboard(',')"></app-btn>
     <app-btn label="+" (click)="keyboard('+')"></app-btn>
   </div>
