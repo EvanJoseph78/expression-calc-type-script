@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MenuBarComponent } from '../../shared/menu-bar/menu-bar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { KeyboardComponent } from '../../keyboard/keyboard.component';
@@ -8,7 +7,7 @@ import { CalculatorService } from '../../../services/calculator.service';
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [MenuBarComponent, MatIconModule, FormsModule, KeyboardComponent],
+  imports: [MatIconModule, FormsModule, KeyboardComponent],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.css'
 })
