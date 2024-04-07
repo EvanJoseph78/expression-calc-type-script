@@ -29,7 +29,7 @@
 
 
   <div class="flex flex-col gap-1 justify-between">
-    <div class="bg-violet-500 w-screen h-72 sm:w-96 grid grid-cols-6" id="" *ngIf="!extraBtns">
+    <div class="bg-violet-500 w-screen h-72 sm:w-96 grid grid-cols-6" id="">
       <app-btn label="add_circle" [icon]="true" (click)="toggleExtraBtns()"></app-btn>
       <app-btn label="!" (click)="keyboard('!')"></app-btn>
       <app-btn label="=" (click)="keyboard('=')"></app-btn>
@@ -65,7 +65,6 @@
       <app-btn label="," (click)="keyboard(',')"></app-btn>
       <app-btn label="+" (click)="keyboard('+')"></app-btn>
     </div>
-
 
   </div>
 </div>
