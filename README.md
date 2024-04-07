@@ -29,14 +29,5 @@ Here are some screenshots of the application:
 - Angular: Frontend framework for building the user interface.
 - Math.js: Library used for evaluating mathematical expressions.
 
-## Usage
-
-1. Input a mathematical expression into the input field.
-2. Press Enter or click the "Calculate" button to evaluate the expression.
-3. The result will be displayed below the input field.
-
-## Installation
-
-1. Clone the repository:
 
 
