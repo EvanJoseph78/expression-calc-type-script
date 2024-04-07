@@ -10,6 +10,10 @@ export class CalculatorService {
 
   solveExpression(expression: string): string {
     expression = this.usefulReplaces(expression);
+    if (expression == "") {
+      return "0";
+    }
+
     try {
       const result = evaluate(expression); // Usa o método evaluate diretamente
       if (result.toString().includes("function")) {

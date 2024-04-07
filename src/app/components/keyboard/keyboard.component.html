@@ -14,7 +14,8 @@
 
       <div class="flex justify-end w-16" (click)="clear()">
         <button class="flex hover:text-secondary-color-600 transition-all duration-300 py-2 rounded">
-          <mat-icon class="transition-all duration-300 hover:transform hover:rotate-180 mr-2">close</mat-icon>
+          <mat-icon class="transition-all duration-300 mr-2 touch-feedback">close</mat-icon>
+
         </button>
 
       </div>
@@ -41,7 +42,7 @@
     <app-btn label="7" (click)="keyboard('7')"></app-btn>
     <app-btn label="8" (click)="keyboard('8')"></app-btn>
     <app-btn label="9" (click)="keyboard('9')"></app-btn>
-    <app-btn [label]="extraBtns ? '%' : '÷'" (click)="extraBtns ? keyboard('%') : keyboard('÷')"></app-btn>
+    <app-btn [label]="extraBtns ? '%' : '÷'" (click)="extraBtns ? keyboard('%') : keyboard('/')"></app-btn>
 
     <app-btn [label]="extraBtns ? 'tan' : 'sen'" (click)="extraBtns ? keyboard('tan(') : keyboard('sen(')"></app-btn>
     <app-btn [label]="extraBtns ? 'log' : 'cos'" (click)="extraBtns ? keyboard('tan(') : keyboard('sen(')"></app-btn>
@@ -55,14 +56,14 @@
     <app-btn label="1" (click)="keyboard('1')"></app-btn>
     <app-btn label="2" (click)="keyboard('2')"></app-btn>
     <app-btn label="3" (click)="keyboard('3')"></app-btn>
-    <app-btn label="-" (click)="keyboard('-')"></app-btn>
+    <app-btn [label]="extraBtns ? '-' : '-'" (click)="extraBtns ? keyboard('-') : keyboard('-')"></app-btn>
 
     <app-btn label="π" (click)="keyboard('π')"></app-btn>
     <app-btn label="√" (click)="keyboard('sqrt(')"></app-btn>
     <app-btn label="0" (click)="keyboard('0')"></app-btn>
     <app-btn label="." (click)="keyboard('.')"></app-btn>
     <app-btn [label]="extraBtns ? ';' : ','" (click)="extraBtns ? keyboard(';') : keyboard(',')"></app-btn>
-    <app-btn label="+" (click)="keyboard('+')"></app-btn>
+    <app-btn [label]="extraBtns ? ',' : '+'" (click)="extraBtns ? keyboard(',') : keyboard('+')"></app-btn>
   </div>
 
 </div>

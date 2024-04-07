@@ -5,4 +5,5 @@
 .touch-feedback:active {
   /* Adicione um feedback visual quando o elemento é tocado */
   background-color: #ff7f07;
+  transform: scale(1.1);
 }
