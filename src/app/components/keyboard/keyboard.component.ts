@@ -3,6 +3,7 @@ import { CalculatorService } from '../../services/calculator.service';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { BtnComponent } from './btn/btn.component';
 
 interface KeyboardButton {
   label: string;
@@ -13,7 +14,7 @@ interface KeyboardButton {
 @Component({
   selector: 'app-keyboard',
   standalone: true,
-  imports: [FormsModule, MatIconModule, CommonModule],
+  imports: [FormsModule, MatIconModule, CommonModule, BtnComponent],
   templateUrl: './keyboard.component.html',
   styleUrl: './keyboard.component.css'
 })
@@ -32,34 +33,34 @@ export class KeyboardComponent {
     { label: 'chevron_right', action: () => this.keyboard('>'), icon: true },
     { label: 'backspace', action: () => this.backspace(), icon: true },
 
-    // { label: '(', action: () => this.keyboard('('), icon: false },
-    // { label: ')', action: () => this.keyboard(')'), icon: false },
-    // { label: '7', action: () => this.keyboard('7'), icon: false },
-    // { label: '8', action: () => this.keyboard('8'), icon: false },
-    // { label: '9', action: () => this.keyboard('9'), icon: false },
-    // { label: '÷', action: () => this.keyboard('/'), icon: false },
-    //
-    // { label: 'sen', action: () => this.keyboard('sen('), icon: false },
-    // { label: 'cos', action: () => this.keyboard('cos('), icon: false },
-    // { label: '4', action: () => this.keyboard('4'), icon: false },
-    // { label: '5', action: () => this.keyboard('5'), icon: false },
-    // { label: '6', action: () => this.keyboard('5'), icon: false },
-    // { label: '×', action: () => this.keyboard('×'), icon: false },
-    //
-    // { label: 'e', action: () => this.keyboard('e'), icon: false },
-    // { label: '^', action: () => this.keyboard('^'), icon: false },
-    // { label: '1', action: () => this.keyboard('1'), icon: false },
-    // { label: '2', action: () => this.keyboard('2'), icon: false },
-    // { label: '3', action: () => this.keyboard('3'), icon: false },
-    // { label: '-', action: () => this.keyboard('-'), icon: false },
-    //
-    // { label: 'π', action: () => this.keyboard('π'), icon: false },
-    // { label: '√', action: () => this.keyboard('sqrt('), icon: false },
-    // { label: '.', action: () => this.keyboard('.'), icon: false },
-    // { label: '0', action: () => this.keyboard('0'), icon: false },
-    // { label: ',', action: () => this.keyboard(','), icon: false },
-    // { label: '+', action: () => this.keyboard('+'), icon: false },
-    //
+    { label: '(', action: () => this.keyboard('('), icon: false },
+    { label: ')', action: () => this.keyboard(')'), icon: false },
+    { label: '7', action: () => this.keyboard('7'), icon: false },
+    { label: '8', action: () => this.keyboard('8'), icon: false },
+    { label: '9', action: () => this.keyboard('9'), icon: false },
+    { label: '÷', action: () => this.keyboard('/'), icon: false },
+
+    { label: 'sen', action: () => this.keyboard('sen('), icon: false },
+    { label: 'cos', action: () => this.keyboard('cos('), icon: false },
+    { label: '4', action: () => this.keyboard('4'), icon: false },
+    { label: '5', action: () => this.keyboard('5'), icon: false },
+    { label: '6', action: () => this.keyboard('5'), icon: false },
+    { label: '×', action: () => this.keyboard('×'), icon: false },
+
+    { label: 'e', action: () => this.keyboard('e'), icon: false },
+    { label: '^', action: () => this.keyboard('^'), icon: false },
+    { label: '1', action: () => this.keyboard('1'), icon: false },
+    { label: '2', action: () => this.keyboard('2'), icon: false },
+    { label: '3', action: () => this.keyboard('3'), icon: false },
+    { label: '-', action: () => this.keyboard('-'), icon: false },
+
+    { label: 'π', action: () => this.keyboard('π'), icon: false },
+    { label: '√', action: () => this.keyboard('sqrt('), icon: false },
+    { label: '.', action: () => this.keyboard('.'), icon: false },
+    { label: '0', action: () => this.keyboard('0'), icon: false },
+    { label: ',', action: () => this.keyboard(','), icon: false },
+    { label: '+', action: () => this.keyboard('+'), icon: false },
+
 
     // Adicione mais botões conforme necessário
   ];
