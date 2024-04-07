@@ -43,12 +43,12 @@
     <app-btn label="9" (click)="keyboard('9')"></app-btn>
     <app-btn [label]="extraBtns ? '%' : '÷'" (click)="extraBtns ? keyboard('%') : keyboard('÷')"></app-btn>
 
-    <app-btn label="sen" (click)="keyboard('sen(')"></app-btn>
-    <app-btn label="cos" (click)="keyboard('cos(')"></app-btn>
+    <app-btn [label]="extraBtns ? 'tan' : 'sen'" (click)="extraBtns ? keyboard('tan(') : keyboard('sen(')"></app-btn>
+    <app-btn [label]="extraBtns ? 'log' : 'cos'" (click)="extraBtns ? keyboard('tan(') : keyboard('sen(')"></app-btn>
     <app-btn label="4" (click)="keyboard('4')"></app-btn>
     <app-btn label="5" (click)="keyboard('5')"></app-btn>
     <app-btn label="6" (click)="keyboard('6')"></app-btn>
-    <app-btn label="×" (click)="keyboard('×')"></app-btn>
+    <app-btn [label]="extraBtns ? 'º' : '×'" (click)="extraBtns ? keyboard('º') : keyboard('×')"></app-btn>
 
     <app-btn label="e" (click)="keyboard('e')"></app-btn>
     <app-btn label="^" (click)="keyboard('^')"></app-btn>
@@ -61,7 +61,7 @@
     <app-btn label="√" (click)="keyboard('sqrt(')"></app-btn>
     <app-btn label="." (click)="keyboard('.')"></app-btn>
     <app-btn label="0" (click)="keyboard('0')"></app-btn>
-    <app-btn label="," (click)="keyboard(',')"></app-btn>
+    <app-btn [label]="extraBtns ? ';' : ','" (click)="extraBtns ? keyboard(';') : keyboard(',')"></app-btn>
     <app-btn label="+" (click)="keyboard('+')"></app-btn>
   </div>
 
