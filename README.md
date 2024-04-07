@@ -10,9 +10,9 @@ You can access the live demo of this application [here](https://expression-calcu
 
 Here are some screenshots of the application:
 
-![Mobile Version](https://imgur.com/oyAJToK)
+[Desktop Version](https://i.imgur.com/okwuWPd.png)
 
-![Desktop Version](https://imgur.com/okwuWPd)
+[Mobile Version](https://i.imgur.com/oyAJToK.png)
 
 ## Features
 
