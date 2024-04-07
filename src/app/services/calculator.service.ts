@@ -28,6 +28,11 @@ export class CalculatorService {
     expression = expression.replaceAll("º", "deg");
     expression = expression.replaceAll("tg", "tan");
     expression = expression.replaceAll("π", "pi");
+    expression = expression.replaceAll("×", "*");
+    expression = expression.replaceAll("≥", ">=");
+    expression = expression.replaceAll("≤", "<=");
+    expression = expression.replaceAll("≠", "!=");
+
     return expression;
   }
 

@@ -6,184 +6,213 @@
         class="text-4xl font-bold text-secondary-color-500">Joseph</span>
     </div>
 
-    <div class="px-4 py-2 text-primary-color-800 font-bold min-h-8 mt-4 border-t border-primary-color-500 flex gap-4">
+    <div
+      class="border-t border-b border-secondary-color-500 h-12 w-full mt-4 flex justify-between content-center items-center overflow-hidden px-2">
+
+      <input type="" name="" value="" class="w-full focus:outline-none px-2 text-xl" [(ngModel)]="input"
+        (keyup.backspace)="backspace()" #inputFieldElement>
+
+      <div class="flex justify-end w-16" (click)="clear()">
+        <button class="flex hover:text-secondary-color-600 transition-all duration-300 py-2 rounded">
+          <mat-icon class="transition-all duration-300 hover:transform hover:rotate-180 mr-2">close</mat-icon>
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="px-4 py-2 text-black font-bold text-xl min-h-8 mt-4 flex gap-4">
       <p class="text-secondary-color-500">></p> {{calculatorService.solveExpression(input)}}
     </div>
   </div>
 
 
   <div class="flex flex-col gap-1 justify-between">
-    <div
-      class="border-t border-b border-secondary-color-500 h-10 w-full mt-4 flex justify-between overflow-hidden px-1">
-
-      <input type="" name="" value="" class="w-full focus:outline-none px-2" [(ngModel)]="input"
-        (keyup.backspace)="backspace()" #inputFieldElement>
-      <div class="flex justify-end w-16" (click)="clear()">
-        <button class="flex hover:text-secondary-color-600 transition-all duration-300 py-2 rounded">
-          <mat-icon class="transition-all duration-300 hover:transform hover:rotate-180 mr-4">close</mat-icon>
-        </button>
-
-        <!-- <button class="flex px-1 py-2 rounded" (click)="backspace()"> -->
-        <!--   <mat-icon class="hover:text-secondary-color-600 transition-all duration-300 ">backspace</mat-icon> -->
-        <!-- </button> -->
-      </div>
-
-    </div>
-
     <div class="bg-violet-500 w-screen h-72 sm:w-96 grid grid-cols-6" id="">
+      @if(extraBtns){
+      @for(button of keyboardButtons2; track button){
+      <div
+        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer text-xl"
+        (click)="button.action()" (click)="toggleExtraBtns()">
+        @if(button.icon == true){
+        <mat-icon>{{button.label}}</mat-icon>
+        }@else{
+        {{button.label}}
+        }
+      </div>
+      }
+
+      }@else{
+      @for(button of keyboardButtons; track button){
+      <div
+        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer text-xl"
+        (click)="button.action()">
+        @if(button.icon == true){
+        <mat-icon>{{button.label}}</mat-icon>
+        }@else{
+        {{button.label}}
+        }
+      </div>
+      }
+      }
 
 
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('sen(')">
-        sen
-      </div>
 
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('cos(')">
-        cos
-      </div>
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('tan(')">
-        tan
-      </div>
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('<')">
-        <mat-icon class="">chevron_left</mat-icon>
-      </div>
-      <div class=" bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500
-        transition-all duration-300 hover:cursor-pointer" (click)="keyboard('>')">
-        <mat-icon class="">chevron_right</mat-icon>
-      </div>
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="backspace()">
-        <mat-icon class="">backspace</mat-icon>
-      </div>
 
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('(')">
-        (
-      </div>
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard(')')">
-        )
-      </div>
-      <div
-        class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('7')">
-        7
-      </div>
-      <div
-        class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('8')">
-        8
-      </div>
-      <div
-        class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('9')">
-        9
-      </div>
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('/')">
-        ÷
-      </div>
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('sqrt(')">
-        √
-      </div>
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('log(')">
-        log
-      </div>
-      <div
-        class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('4')">
-        4
-      </div>
-      <div
-        class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('5')">
-        5
-      </div>
-      <div
-        class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('6')">
-        6
-      </div>
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('*')">
-        ×
-      </div>
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('e')">
-        e
-      </div>
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('^')">
-        ^
-      </div>
-      <div
-        class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('1')">
-        1
-      </div>
-      <div
-        class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('2')">
-        2
-      </div>
-      <div
-        class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('3')">
-        3
-      </div>
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('-')">
-        -
-      </div>
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('π')">
-        π
-      </div>
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard(',')">
-        ,
-      </div>
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('.')">
-        .
-      </div>
-      <div
-        class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('0')">
-        0
-      </div>
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('=')">
-        =
-      </div>
-      <div
-        class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer"
-        (click)="keyboard('+')">
-        +
-      </div>
+      <!---->
+      <!-- <div -->
+      <!--   class="bg-secondary-color-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('sen(')"> -->
+      <!--   sen -->
+      <!-- </div> -->
+      <!---->
+      <!-- <div -->
+      <!--   class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('cos(')"> -->
+      <!--   cos -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('tan(')"> -->
+      <!--   tan -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('<')"> -->
+      <!--   <mat-icon class="">chevron_left</mat-icon> -->
+      <!-- </div> -->
+      <!-- <div class=" bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 -->
+      <!--   transition-all duration-300 hover:cursor-pointer" (click)="keyboard('>')"> -->
+      <!--   <mat-icon class="">chevron_right</mat-icon> -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="backspace()"> -->
+      <!--   <mat-icon class="">backspace</mat-icon> -->
+      <!-- </div> -->
+      <!---->
+      <!-- <div -->
+      <!--   class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('(')"> -->
+      <!--   ( -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard(')')"> -->
+      <!--   ) -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('7')"> -->
+      <!--   7 -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('8')"> -->
+      <!--   8 -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('9')"> -->
+      <!--   9 -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('/')"> -->
+      <!--   ÷ -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('sqrt(')"> -->
+      <!--   √ -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('log(')"> -->
+      <!--   log -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('4')"> -->
+      <!--   4 -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('5')"> -->
+      <!--   5 -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('6')"> -->
+      <!--   6 -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('*')"> -->
+      <!--   × -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('e')"> -->
+      <!--   e -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('^')"> -->
+      <!--   ^ -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('1')"> -->
+      <!--   1 -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('2')"> -->
+      <!--   2 -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('3')"> -->
+      <!--   3 -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('-')"> -->
+      <!--   - -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('π')"> -->
+      <!--   π -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard(',')"> -->
+      <!--   , -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('.')"> -->
+      <!--   . -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-300 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('0')"> -->
+      <!--   0 -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('=')"> -->
+      <!--   = -->
+      <!-- </div> -->
+      <!-- <div -->
+      <!--   class="bg-zinc-200 border-zinc-600 flex justify-center items-center border hover:bg-secondary-color-500 transition-all duration-300 hover:cursor-pointer" -->
+      <!--   (click)="keyboard('+')"> -->
+      <!--   + -->
+      <!-- </div> -->
+      <!---->
 
     </div>
   </div>
