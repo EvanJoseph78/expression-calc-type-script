@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component } from '@angular/core';
 import { CalculatorService } from '../../services/calculator.service';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
